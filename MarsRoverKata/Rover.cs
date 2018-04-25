@@ -2,6 +2,11 @@
 {
     public class Rover
     {
-        public object Location { get; set; }
+        public Rover(int x, int y)
+        {
+            Location = new Location {X = x, Y = y};
+        }
+
+        public Location Location { get; }
     }
 }

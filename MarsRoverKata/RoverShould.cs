@@ -5,11 +5,16 @@ namespace MarsRoverKata
     [TestFixture]
     class RoverShould
     {
-        public void have_a_location()
-        {
-            Rover rover = new Rover();
+        private const int COORDINATE_ORIGIN_X = 0;
+        private const int COORDINATE_ORIGIN_Y = 0;
 
-            Assert.NotNull(rover.Location);
+        [Test]
+        public void start_in_the_given_position()
+        {
+            var rover = new Rover(COORDINATE_ORIGIN_X, COORDINATE_ORIGIN_Y);
+
+            Assert.AreEqual(COORDINATE_ORIGIN_X, rover.Location.X);
+            Assert.AreEqual(COORDINATE_ORIGIN_Y, rover.Location.Y);
         }
     }
 }
