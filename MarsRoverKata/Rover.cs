@@ -3,6 +3,7 @@
     public class Rover
     {
         private const char FORWARD_COMMAND = 'f';
+        private const char BACKWARDS_COMMAND = 'b';
         private const int DISTANCE_UNIT = 1;
 
         public Rover(int x, int y, char direction)
@@ -13,7 +14,7 @@
 
         public Location Location { get; }
 
-        public char Direction { get; }
+        public char Direction { get; private set; }
 
         public void Move(char[] commands)
         {
@@ -23,9 +24,13 @@
                 {
                     Location.Y += DISTANCE_UNIT;
                 }
-                else
+                else if (command == BACKWARDS_COMMAND)
                 {
                     Location.Y -= DISTANCE_UNIT;
+                }
+                else
+                {
+                    Direction = 'W';
                 }
             }           
         }
