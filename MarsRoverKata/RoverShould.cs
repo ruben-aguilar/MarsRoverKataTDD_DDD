@@ -16,7 +16,7 @@ namespace MarsRoverKata
         private const char BACKWARDS_COMMAND = 'b';
         private const char TURN_LEFT_COMMAND = 'l';
         private const char TURN_RIGHT_COMMAND = 'r';
-
+        private const char SOUTH_DIRECTION = 'S';
         private Rover _rover;
 
         [SetUp]
@@ -95,6 +95,16 @@ namespace MarsRoverKata
             _rover.Move(commands);
 
             Assert.AreEqual(EAST_DIRECTION, _rover.Direction);
+        }
+
+        [Test]
+        public void turnt_left_twice()
+        {
+            char[] commands = { TURN_LEFT_COMMAND, TURN_LEFT_COMMAND };
+
+            _rover.Move(commands);
+
+            Assert.AreEqual(SOUTH_DIRECTION, _rover.Direction);
         }
     }
 }

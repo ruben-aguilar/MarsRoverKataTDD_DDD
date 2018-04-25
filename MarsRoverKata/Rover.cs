@@ -8,6 +8,8 @@
         private const char LEFT_COMMAND = 'l';
         private const char WEST = 'W';
         private const char EAST = 'E';
+        private const char NORTH = 'N';
+        private const char SOUTH = 'S';
 
         public Rover(int x, int y, char direction)
         {
@@ -38,7 +40,14 @@
                     Location.Y -= DISTANCE_UNIT;
                     break;
                 case LEFT_COMMAND:
-                    Direction = WEST;
+                    if (Direction.Equals(NORTH))
+                    {
+                        Direction = WEST;
+                    }
+                    else
+                    {
+                        Direction = SOUTH;
+                    }
                     break;
                 default:
                     Direction = EAST;
