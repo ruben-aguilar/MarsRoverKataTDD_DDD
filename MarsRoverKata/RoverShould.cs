@@ -58,5 +58,16 @@ namespace MarsRoverKata
 
             Assert.AreEqual(2, _rover.Location.Y);
         }
+
+        [Test]
+        public void return_to_origin_when_moving_forward_and_backwards()
+        {
+            char[] commands = { FORWARD_COMMAND, BACKWARDS_COMMAND };
+
+            _rover.Move(commands);
+
+            Assert.AreEqual(0, _rover.Location.Y);
+            Assert.AreEqual(0, _rover.Location.X);
+        }
     }
 }
