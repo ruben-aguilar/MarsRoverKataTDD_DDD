@@ -12,9 +12,16 @@
 
         public char Direction { get; }
 
-        public void Move(char[] o)
+        public void Move(char[] commands)
         {
-            Location.Y = 1;
+            if (commands[0] == 'f')
+            {
+                Location.Y = 1;
+            }
+            else
+            {
+                Location.Y = -1;
+            }
         }
     }
 }

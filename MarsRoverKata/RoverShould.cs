@@ -32,9 +32,19 @@ namespace MarsRoverKata
         [Test]
         public void move_forward()
         {
-            _rover.Move(new char['f']);
+            char[] commands = {'f'};
+            _rover.Move(commands);
 
             Assert.AreEqual(1, _rover.Location.Y);
+        }
+
+        [Test]
+        public void move_backwards()
+        {
+            char[] commands = {'b'};
+            _rover.Move(commands);
+
+            Assert.AreEqual(-1, _rover.Location.Y);
         }
     }
 }
