@@ -11,5 +11,10 @@
         public Location Location { get; }
 
         public char Direction { get; }
+
+        public void Move(char[] o)
+        {
+            Location.Y = 1;
+        }
     }
 }
