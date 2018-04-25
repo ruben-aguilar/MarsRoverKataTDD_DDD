@@ -14,14 +14,17 @@
 
         public void Move(char[] commands)
         {
-            if (commands[0] == 'f')
+            foreach (char command in commands)
             {
-                Location.Y = 1;
-            }
-            else
-            {
-                Location.Y = -1;
-            }
+                if (command == 'f')
+                {
+                    Location.Y += 1;
+                }
+                else
+                {
+                    Location.Y = -1;
+                }
+            }           
         }
     }
 }

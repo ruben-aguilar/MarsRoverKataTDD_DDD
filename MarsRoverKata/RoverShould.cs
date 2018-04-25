@@ -8,6 +8,8 @@ namespace MarsRoverKata
         private const int COORDINATE_ORIGIN_X = 0;
         private const int COORDINATE_ORIGIN_Y = 0;
         private const char INITIAL_DIRECTION = 'N';
+        private const char FORWARD_COMMAND = 'f';
+        private const char BACKWARDS_COMMAND = 'b';
 
         private Rover _rover;
         [SetUp]
@@ -32,7 +34,7 @@ namespace MarsRoverKata
         [Test]
         public void move_forward()
         {
-            char[] commands = {'f'};
+            char[] commands = { FORWARD_COMMAND };
             _rover.Move(commands);
 
             Assert.AreEqual(1, _rover.Location.Y);
@@ -41,10 +43,20 @@ namespace MarsRoverKata
         [Test]
         public void move_backwards()
         {
-            char[] commands = {'b'};
+            char[] commands = { BACKWARDS_COMMAND };
             _rover.Move(commands);
 
             Assert.AreEqual(-1, _rover.Location.Y);
+        }
+
+        [Test]
+        public void move_forward_two_units()
+        {
+            char[] commands = { FORWARD_COMMAND, FORWARD_COMMAND };
+
+            _rover.Move(commands);
+
+            Assert.AreEqual(2, _rover.Location.Y);
         }
     }
 }
