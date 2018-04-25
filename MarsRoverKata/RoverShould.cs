@@ -7,13 +7,18 @@ namespace MarsRoverKata
     {
         private const int COORDINATE_ORIGIN_X = 0;
         private const int COORDINATE_ORIGIN_Y = 0;
+
         private const char NORTH_DIRECTION = 'N';
         private const char WEST_DIRECTION = 'W';
+        private const char EAST_DIRECTION = 'E';
 
         private const char FORWARD_COMMAND = 'f';
         private const char BACKWARDS_COMMAND = 'b';
-        private const char LEFT_COMMAND = 'l';
+        private const char TURN_LEFT_COMMAND = 'l';
+        private const char TURN_RIGHT_COMMAND = 'r';
+
         private Rover _rover;
+
         [SetUp]
         public void SetUp()
         {
@@ -75,11 +80,21 @@ namespace MarsRoverKata
         [Test]
         public void turn_left()
         {
-            char[] commands = { LEFT_COMMAND };
+            char[] commands = { TURN_LEFT_COMMAND };
 
             _rover.Move(commands);
 
             Assert.AreEqual(WEST_DIRECTION, _rover.Direction);
+        }
+
+        [Test]
+        public void turn_right()
+        {
+            char[] commands = { TURN_RIGHT_COMMAND };
+
+            _rover.Move(commands);
+
+            Assert.AreEqual(EAST_DIRECTION, _rover.Direction);
         }
     }
 }
