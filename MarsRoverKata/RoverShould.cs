@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace MarsRoverKata
 {
     [TestFixture]
     class RoverShould
     {
+        public void have_a_location()
+        {
+            Rover rover = new Rover();
+
+            Assert.NotNull(rover.Location);
+        }
     }
 }
